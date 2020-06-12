@@ -19,7 +19,6 @@
                     <input type="email"
                            placeholder="адрес электронной почты"
                            v-model="email"
-                           ref="newEmail"
                            class="form-control"
                            :class="{ error: $v.email.$error }"
                            @blur="$v.email.$touch()"
@@ -34,7 +33,6 @@
                     <input type="password"
                            placeholder="пароль"
                            v-model="password"
-                           ref="password"
                            class="form-control"
                            :class="{ error: $v.password.$error }"
                            @blur="$v.password.$touch()"
@@ -43,6 +41,7 @@
                         <p v-if="!$v.password.minLength" class="errorMessage">Слишком короткиq пароль</p>
                         <p v-if="!$v.password.required" class="errorMessage">Обязательное поле</p>
                     </div>
+
                 </div>
 
                 <button type="submit" :disabled="$v.$invalid || loading" class="btn btn-primary" @click="toProfile">
@@ -73,8 +72,8 @@
             },
             async toProfile() {
                 await axios.post('api/profile', {
-                    password: this.$refs['password'].value,
-                    email: this.$refs['newEmail'].value
+                    password: this.password,
+                    email: this.email
                 })
                 .catch(error => {
                     console.log(error)

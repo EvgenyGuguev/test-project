@@ -1987,7 +1987,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -2012,8 +2011,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return axios.post('api/profile', {
-                  password: _this.$refs['password'].value,
-                  email: _this.$refs['newEmail'].value
+                  password: _this.password,
+                  email: _this.email
                 })["catch"](function (error) {
                   console.log(error);
                 });
@@ -39893,7 +39892,6 @@ var render = function() {
                     expression: "email"
                   }
                 ],
-                ref: "newEmail",
                 staticClass: "form-control",
                 class: { error: _vm.$v.email.$error },
                 attrs: {
@@ -39941,7 +39939,6 @@ var render = function() {
                     expression: "password"
                   }
                 ],
-                ref: "password",
                 staticClass: "form-control",
                 class: { error: _vm.$v.password.$error },
                 attrs: { type: "password", placeholder: "пароль" },
